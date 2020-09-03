@@ -3,6 +3,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import team from "./team";
 import {
+  sortMembers,
   getStudents,
   getTeachers,
   getMemberAnimalsWithUrls,
@@ -12,6 +13,8 @@ import {
 
 function App() {
   const [showRole, setShowRole] = useState("all");
+  const [sortBy, setSortBy] = useState("name");
+  const [sortDirection, setSortDirection] = useState("asc");
   const [showAnimal, setShowAnimal] = useState("all");
   const [members, setMembers] = useState(team);
 
@@ -27,8 +30,14 @@ function App() {
     if (showAnimal !== "all") {
       filteredMembers = filterByAnimal(filteredMembers, showAnimal);
     }
-    setMembers(filteredMembers);
-  }, [showAnimal, showRole]);
+    const sortedAndFilteredMembers = sortMembers(
+      filteredMembers,
+      sortBy,
+      sortDirection
+    );
+
+    setMembers(sortedAndFilteredMembers);
+  }, [showAnimal, showRole, sortBy, sortDirection]);
 
   return (
     <div className="App">
@@ -38,6 +47,28 @@ function App() {
       </header>
       <main>
         <div className="filters-area">
+          <label>
+            <span>Sort by:</span>
+            <select
+              id="select-sortby"
+              value={sortBy}
+              onChange={(event) => setSortBy(event.target.value)}
+            >
+              <option value="name">Name</option>
+              <option value="role">Role</option>
+            </select>
+          </label>
+          <label>
+            <span>Sort Direction:</span>
+            <select
+              id="select-role"
+              value={sortDirection}
+              onChange={(event) => setSortDirection(event.target.value)}
+            >
+              <option value="asc">A-Z</option>
+              <option value="desc">Z-A</option>
+            </select>
+          </label>
           <label>
             <span>Show Role:</span>
             <select
