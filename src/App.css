@@ -1,9 +1,8 @@
 .App {
-  text-align: center;
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 5rem;
   pointer-events: none;
 }
 
@@ -15,17 +14,15 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.App-header h1 {
+  font-size: 2em;
+  margin: 0;
 }
 
 @keyframes App-logo-spin {
@@ -35,4 +32,74 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+main {
+  width: 100%;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.filters-area {
+  display: flex;
+  justify-content: center;
+}
+.filters-area span {
+  margin-right: 1rem;
+}
+.filters-area select {
+  font-size: 1rem;
+}
+.filters-area label {
+  margin-right: 2rem;
+}
+
+.members-table {
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: collapse;
+}
+.members-table thead {
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-align: left;
+}
+.members-table th,
+.members-table td {
+  padding: 1rem 1.5rem;
+}
+.member-row {
+  font-size: 1.2rem;
+  /* font-weight: bold; */
+}
+.animals-cell {
+  display: flex;
+  min-height: 100%;
+}
+.animals-cell div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 1rem;
+  font-size: 0.75rem;
+}
+.name-cell {
+  font-weight: bold;
+}
+.member-row:nth-child(odd) {
+  background-color: #efefef;
+}
+.member-row img {
+  border-radius: 50%;
+}
+.avatar-cell img {
+  width: 5rem;
+  height: 5rem;
+}
+.animals-cell img {
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: 0.25rem;
+}
+.animals-cell img:last-child {
+  margin-right: 0rem;
 }
